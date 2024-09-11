@@ -17,7 +17,7 @@ const cardSearch = new CardSearch();
 
 let emptyDeckButton = document.getElementById('empty-deck-button');
 emptyDeckButton.onclick = () => {
-    if (window.confirm("Remove all cards from the stack?")) {
+    if (window.confirm("Remove all cards from the deck?")) {
         let cardContainer = document.getElementById('card-container');
         while (cardContainer.firstChild) {
             cardContainer.removeChild(cardContainer.firstChild);
