@@ -1,5 +1,6 @@
 import CardElement from "./CardElement.js";
 
+/* Method for taking the card information from the search bar and loading it into a card object taken from CardElement.js */
 export default class CardSearch {
     constructor() {
         this.searchInput = document.getElementById('search-input');
