@@ -1,0 +1,254 @@
+* {
+  box-sizing: border-box;
+  font-family: "Lato";
+  touch-action: manipulation;
+}
+
+html {
+  --main-color: #4CAF50;
+  --secondary-color: #4c87af;
+  --main-bg-color: #181e30;
+  --secondary-bg-color: #2c2c2c;
+  --main-text-color: #ffffff;
+  --secondary-text-color: #ffffff;
+  --main-border-color: #ccc;
+  --secondary-border-color: #ccc;
+  --main-button-color: #4CAF50;
+  --secondary-button-color: #4c87af;
+  --tertiary-button-color: #be3b3b;
+  --main-button-text-color: #ffffff;
+  --secondary-button-text-color: #ffffff;
+  height: 100%;
+  color: var(--main-text-color);
+  overscroll-behavior: none;
+}
+
+body {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  background: var(--main-bg-color);
+  overscroll-behavior: none;
+}
+
+h1 {
+  text-align: center;
+}
+
+.search-container {
+  display: flex;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+#search-input {
+  padding: 10px;
+  border-color: var(--main-border-color);
+  border-radius: 10px;
+  flex-grow: 1;
+  margin-right: 10px;
+  text-overflow: ellipsis;
+}
+
+#search-button {
+  display: flex;
+  flex-flow: row nowrap ;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--secondary-button-color);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.autocomplete-items {
+  position: absolute;
+  top: 100%;
+  width: max-content;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: var(--secondary-bg-color);
+  border-radius: 10px;
+  z-index: 1;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.autocomplete-items div:hover,
+.autocomplete-items div.autocomplete-active {
+  background-color: var(--secondary-color);
+}
+
+main {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+#card-container {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 10px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background-color: var(--secondary-bg-color);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px dashed transparent;
+  max-height: 72px;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+.card img {
+  max-width: 100px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.card-details {
+  flex-grow: 1;
+}
+
+.card-name {
+  max-height: 72px;
+  font-weight: bold;
+  margin: 0;
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Set the number of lines to display before adding ellipsis */
+  -webkit-box-orient: vertical;
+
+}
+
+.card-oracle-text {
+  margin: 0;
+  text-overflow: ellipsis;
+}
+
+.card-button-container {
+  display: flex;
+  flex-flow: row nowrap;
+  align-self: stretch;
+  background-color: var(--main-border-color);
+  width: 20%;
+  min-width: 72px;
+}
+
+.duplicate-card-button {
+  display: flex;
+  flex: 1 1 0;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: var(--secondary-button-color);
+  color: white;
+  cursor: pointer;
+}
+
+.resolve-card-button {
+  display: flex;
+  flex: 1 1 0;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: var(--main-button-color);
+  color: white;
+  cursor: pointer;
+}
+
+.ghost-class {
+  background-color: var(--secondary-bg-color);
+  border: 2px dashed var(--main-border-color);
+}
+
+#resolve-stack-button {
+  display: flex;
+  flex-flow: row nowrap ;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+  justify-content: center;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--main-button-color);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#empty-stack-button {
+  display: flex;
+  flex-flow: row nowrap ;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+  justify-content: center;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--tertiary-button-color);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.full-card-modal {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  position: fixed;
+  gap: 10px;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 3;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 5vh 10vw;
+  overscroll-behavior-x: none;
+}
+
+.full-card-image {
+  max-width: 80vw;
+  max-height: 80vh;
+}
+
+.rulings-container {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 10px;
+}
+
+.rulings {
+  max-width: 80vw;
+  text-align: left;
+}
