@@ -7,7 +7,13 @@ export default class CardElement {
         this.cardArtCropped = cardData.image_uris.art_crop;
         this.cardArtFull = cardData.image_uris.png;
         this.uuid = this.uuidv4();
-        this.cardContainer = document.getElementById('card-container');
+        if (this.type_line[0,3] == "Land"){
+            this.cardContainer = document.getElementById('land-container');
+        } else if (this.type_line[0,7] == "Creature"){
+            this.cardContainer = document.getElementById('creature-container');
+        } else{
+            this.cardContainer = document.getElementById('card-container');
+        }
     }
     
     create() {
